@@ -16,8 +16,12 @@ public class Airplane {
 	}
 
 	public String howDoYouFly() {
-		// TODO Auto-generated method stub
-		return null;
+		switch(kind) {
+		case 1: return "Like a fighter jet";
+		case 2: return "I don't fly";
+		case 3: return "Like a passenger plane";
+		default: return null;
+		}
 	}
 
 }
