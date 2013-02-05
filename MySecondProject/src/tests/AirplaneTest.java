@@ -19,7 +19,19 @@ public class AirplaneTest {
 		
 		stringReturned = classUnderTest.howDoYouFly();
 
-		assertEquals("Wrong Answer", stringReturned, expectedOutput);
+		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
 	}
-
+	
+	@Test
+	public void test2() {
+		
+		String expectedOutput = "Vertically";
+		String stringReturned = null;
+		
+		Airplane classUnderTest = new Airplane(1);
+		
+		stringReturned = classUnderTest.howDoYouLiftOff();
+		
+		assertEquals("Wrong Answer!", stringReturned, expectedOutput);
+	}
 }
