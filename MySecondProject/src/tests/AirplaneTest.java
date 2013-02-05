@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import vehicles.Airplane;
+import vehicles.FFJ;
 
 
 public class AirplaneTest {
@@ -15,7 +16,9 @@ public class AirplaneTest {
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		
-		Airplane classUnderTest = new Airplane(1);
+		FFJ fly = new FFJ();
+		
+		Airplane classUnderTest = new Airplane(1, fly);
 		
 		stringReturned = classUnderTest.howDoYouFly();
 
