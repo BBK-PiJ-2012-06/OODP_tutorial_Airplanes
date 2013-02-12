@@ -2,23 +2,32 @@ package tests;
 
 import static org.junit.Assert.*;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import vehicles.Airplane;
 import vehicles.FFJ;
 import vehicles.Flying;
+import vehicles.FlyingFactory;
 import vehicles.ModelAirplane;
 
 
 public class AirplaneTest {
 
+	private static FlyingFactory flyingFactory;
+	
+	@BeforeClass
+	public static void onlyOnce() {
+		flyingFactory = new FlyingFactory();
+	}
+	
 	@Test
-	public void test() {
+	public void test1() {
 		
 		String expectedOutput = "Like a fighter jet";
 		String stringReturned = null;
 		
-		Flying fly = new FFJ();
+		Flying fly = flyingFactory.createFlying("Fighter Jet");
 		
 		Airplane classUnderTest = new Airplane(1, fly);
 		
@@ -48,7 +57,7 @@ public class AirplaneTest {
 		
 		Flying fly = new ModelAirplane();
 		
-		Airplane classUnderTest = new Airplane(1, fly);
+		Airplane classUnderTest = new Airplane(2, fly);
 		
 		stringReturned = classUnderTest.howDoYouFly();
 		
