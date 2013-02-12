@@ -6,20 +6,25 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import vehicles.Airplane;
-import vehicles.FFJ;
 import vehicles.Flying;
 import vehicles.FlyingFactory;
+import vehicles.LiftOff;
+import vehicles.LiftOffFactory;
 import vehicles.ModelAirplane;
 
 
 public class AirplaneTest {
 
 	private static FlyingFactory flyingFactory;
+	private static LiftOffFactory liftOffFactory;
+
 	
 	@BeforeClass
 	public static void onlyOnce() {
 		flyingFactory = new FlyingFactory();
+		liftOffFactory = new LiftOffFactory();
 	}
+
 	
 	@Test
 	public void test1() {
@@ -28,8 +33,9 @@ public class AirplaneTest {
 		String stringReturned = null;
 		
 		Flying fly = flyingFactory.createFlying("Fighter Jet");
+		LiftOff liftOff = liftOffFactory.createLiftOff("Fighter Jet");
 		
-		Airplane classUnderTest = new Airplane(1, fly);
+		Airplane classUnderTest = new Airplane(liftOff, fly);
 		
 		stringReturned = classUnderTest.howDoYouFly();
 
@@ -42,7 +48,10 @@ public class AirplaneTest {
 		String expectedOutput = "Vertically";
 		String stringReturned = null;
 		
-		Airplane classUnderTest = new Airplane(1);
+		Flying fly = flyingFactory.createFlying("Harrier");
+		LiftOff liftOff = liftOffFactory.createLiftOff("Harrier");
+		
+		Airplane classUnderTest = new Airplane(liftOff, fly);
 		
 		stringReturned = classUnderTest.howDoYouLiftOff();
 		
@@ -55,9 +64,10 @@ public class AirplaneTest {
 		String expectedOutput = "I don't fly";
 		String stringReturned = null;
 		
-		Flying fly = new ModelAirplane();
+		Flying fly = flyingFactory.createFlying("Model");
+		LiftOff liftOff = liftOffFactory.createLiftOff("Model");
 		
-		Airplane classUnderTest = new Airplane(2, fly);
+		Airplane classUnderTest = new Airplane(liftOff, fly);
 		
 		stringReturned = classUnderTest.howDoYouFly();
 		

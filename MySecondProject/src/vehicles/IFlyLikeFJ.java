@@ -7,7 +7,7 @@ package vehicles;
  * @author sward09
  *
  */
-public class FFJ implements Flying {
+public class IFlyLikeFJ implements Flying {
 
 	/* (non-Javadoc)
 	 * @see vehicles.Flying#howIFly()

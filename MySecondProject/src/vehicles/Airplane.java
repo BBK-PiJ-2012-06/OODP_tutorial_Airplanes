@@ -9,29 +9,20 @@ package vehicles;
  */
 public class Airplane {
 	
-	private int kind;
 	private Flying hIF;
+	private LiftOff hIL;
 
-	public Airplane(int i) {
-		kind = i;
-	}
-
-	public Airplane(int i, Flying fly) {
-		kind = i;
+	public Airplane(LiftOff lift, Flying fly) {
 		hIF = fly;
+		hIL = lift;
 	}
 
 	public String howDoYouFly() {
-		switch(kind) {
-		case 1: return "Like a fighter jet";
-		case 2: return "I don't fly";
-		case 3: return "Like a passenger plane";
-		default: return null;
-		}
+		return hIF.howIFly();
 	}
 
 	public String howDoYouLiftOff() {
-		return hIF.howIFly();
+		return hIL.howILiftOff();
 	}
 
 }
