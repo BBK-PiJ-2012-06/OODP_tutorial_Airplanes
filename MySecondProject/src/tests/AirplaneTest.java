@@ -10,7 +10,6 @@ import vehicles.Flying;
 import vehicles.FlyingFactory;
 import vehicles.LiftOff;
 import vehicles.LiftOffFactory;
-import vehicles.ModelAirplane;
 
 
 public class AirplaneTest {
